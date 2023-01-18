@@ -2,12 +2,15 @@
     
     <body>
         <p>
-            v 0.4
+            v 0.5
         </p>
         <p>
             This is a login page to test OAuth
         </p>
-        <button onclick="login()">Click Me To Login!</button>
+        <form action="https://github.com/login/oauth/authorize" method="get">
+            <button onclick="login()">Click Me To Login!</button>
+            <input hidden type="text" name="client_id">8a2dea0bd79c1721b453</input>
+        </form>
     </body>
 
     <script>
