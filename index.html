@@ -2,18 +2,18 @@
     
     <body>
         <p>
-            v 0.5
+            v 0.6
         </p>
         <p>
             This is a login page to test OAuth
         </p>
         <form action="https://github.com/login/oauth/authorize" method="get">
             <button onclick="login()">Click Me To Login!</button>
-            <input hidden type="text" name="client_id">8a2dea0bd79c1721b453</input>
+            <input visible="false" type="text" name="client_id">8a2dea0bd79c1721b453</input>
         </form>
     </body>
 
-    <script>
+    <!-- <script>
         function login() {
             const Http = new XMLHttpRequest();
             const url='https://github.com/login/oauth/authorize';
@@ -28,5 +28,5 @@
                 console.log(Http.responseText)
             }
         }
-    </script>
+    </script> -->
 </html>
