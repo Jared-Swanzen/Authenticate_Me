@@ -9,23 +9,57 @@
                 Get an access token!
             </button>
         </form>
+        <button onclick="getToken()"></button>
         <p id="access_token"></p>
     </body>
 
-    <script>
-        window.onclick = function() {
-            console.log("Starting script");
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('access_token') != null && urlParams.get('access_token').length > 0) {
-                const accessToken = urlParams.get('access_token');
-                // put access_token in the access_token paragraph
-                const accessTokenElem = document.getElementById('access_token');
-                accessTokenElem.innerHTML = "Access Token is: " + accessToken;
-            } else {
-                const codeElem = document.getElementById("code");
-                code.value = urlParams.get("code");
-                console.log(urlParams.get("code"));
-            }
+    <script async>
+
+
+        const urlParams = new URLSearchParams(window.location.search);  
+        function getToken() {
+            fetch(
+                "https://github.com/login/oauth/access_token", {
+                    method: "POST",
+                    headers: {
+                        'Accept': 'application/json'},
+                    body: JSON.stringify({
+                        "client_id": "8a2dea0bd79c1721b453",
+                        "client_secret": "335b4ada62e23ef9b7916964fd9d1e55712085f8",
+                        "code": urlParams.get("code")
+                    })
+                }
+            ).then(re => re.json()).then(
+                response => {
+                    const access_token = response.get("access_token")
+                    const accessTokenElem = document.getElementById('access_token');
+                    accessTokenElem.innerHTML = "Access Token is: " + access_token;
+                }
+                
+            )
         }
+        
+        if (urlParams.get('access_token').length > 0) {
+            const accessToken = urlParams.get('access_token');
+            // put access_token in the access_token paragraph
+            const accessTokenElem = document.getElementById('access_token');
+            accessTokenElem.innerHTML = "Access Token is: " + accessToken;
+        } else {
+            const codeElem = document.getElementById("code");
+            code.value = urlParams.get("code");
+            console.log(urlParams.get("code"))
+        }
+
+        // const Http = new XMLHttpRequest();
+        // const url='https://github.com/login/oauth/access_token';
+        // Http.open("POST", url);
+        // Http.setRequestHeader('client_id', '8a2dea0bd79c1721b453');
+        // Http.setRequestHeader('client_secret', '335b4ada62e23ef9b7916964fd9d1e55712085f8');
+        // Http.setRequestHeader('code', urlParams.get('code'));
+        // Http.send();
+
+        // Http.onreadystatechange = (e) => {
+        //     alert(Http.responseText)
+        // }
     </script>
 </html>
