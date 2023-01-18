@@ -1,5 +1,22 @@
 <html>
     <body>
         Logged In!
+        <p id="Access Token"></p>
     </body>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const Http = new XMLHttpRequest();
+        const url='https://github.com/login/oauth/access_token';
+        Http.open("POST", url);
+        Http.setRequestHeader('client_id', '8a2dea0bd79c1721b453');
+        Http.setRequestHeader('client_secret', '335b4ada62e23ef9b7916964fd9d1e55712085f8');
+        Http.setRequestHeader('code', urlParams.get('code'));
+        Http.send();
+
+        Http.onreadystatechange = (e) => {
+            alert(Http.responseText)
+        }
+    </script>
 </html>
