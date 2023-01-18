@@ -2,7 +2,7 @@
     
     <body>
         <p>
-            v 1.0
+            v 0.1
         </p>
         <p>
             This is a login page to test OAuth
@@ -17,7 +17,7 @@
             Http.open("GET", url);
             Http.setRequestHeader('client_id', '8a2dea0bd79c1721b453');
             Http.setRequestHeader('redirect_uri', 'Jared-Swanzen.github.io/logged_in');
-            Http.setRequestHeader('access_control_allow_origin', '*');
+            Http.setRequestHeader('origin', 'Jared-Swanzen.github.io');
             Http.setRequestHeader('allow_signup', false);
             Http.send();
 
