@@ -2,7 +2,7 @@
     
     <body>
         <p>
-            v 0.2
+            v 0.3
         </p>
         <p>
             This is a login page to test OAuth
@@ -16,9 +16,8 @@
             const url='https://github.com/login/oauth/authorize';
             Http.open("GET", url);
             Http.setRequestHeader('client_id', '8a2dea0bd79c1721b453');
-            Http.setRequestHeader('redirect_uri', 'Jared-Swanzen.github.io/logged_in');
-            Http.setRequestHeader('origin', 'Jared-Swanzen.github.io');
-            Http.setRequestHeader('access_control_allow_origin', '*');
+            Http.setRequestHeader('redirect_uri', 'jared-swanzen.github.io/logged_in');
+            Http.setRequestHeader('origin', 'jared-swanzen.github.io');
             Http.setRequestHeader('allow_signup', false);
             Http.send();
 
