@@ -2,5 +2,22 @@
     
     <body>
         This is a login page to test OAuth
+        <button onclick="login()">Click Me To Login!</button>
     </body>
+
+    <script>
+        function login() {
+            const Http = new XMLHttpRequest();
+            const url='https://github.com/login/oauth/authorize';
+            Http.setRequestHeader('client_id', '8a2dea0bd79c1721b453');
+            Http.setRequestHeader('redirect_uri', 'Jared-Swanzen.github.io/logged_in');
+            Http.setRequestHeader('allow_signup', false);
+            Http.open("GET", urlx);
+            Http.send();
+
+            Http.onreadystatechange = (e) => {
+                console.log(Http.responseText)
+            }
+        }
+    </script>
 </html>
