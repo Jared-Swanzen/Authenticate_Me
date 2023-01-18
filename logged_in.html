@@ -1,22 +1,39 @@
 <html>
     <body>
         Logged In!
-        <p id="Access Token"></p>
+        <form action="https://github.com/login/oauth/access_token" method="post">
+            <input type="text" name="client_id" value="8a2dea0bd79c1721b453">
+            <input type="text" name="client_secret" calue="335b4ada62e23ef9b7916964fd9d1e55712085f8">
+            <input type="text" name="code" id="code">
+            <button type="submit">
+                Get an access token!
+            </button>
+        </form>
+        <p id="access_token"></p>
     </body>
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-
-        const Http = new XMLHttpRequest();
-        const url='https://github.com/login/oauth/access_token';
-        Http.open("POST", url);
-        Http.setRequestHeader('client_id', '8a2dea0bd79c1721b453');
-        Http.setRequestHeader('client_secret', '335b4ada62e23ef9b7916964fd9d1e55712085f8');
-        Http.setRequestHeader('code', urlParams.get('code'));
-        Http.send();
-
-        Http.onreadystatechange = (e) => {
-            alert(Http.responseText)
+        if (urlParams.get('access_token').length > 0) {
+            const accessToken = urlParams.get('access_token');
+            // put access_token in the access_token paragraph
+            const accessTokenElem = document.getElementById('access_token');
+            accessTokenElem.innerHTML = "Access Token is: " + accessToken;
+        } else {
+            const codeElem = document.getElementById("code");
+            code.value = urlParams.get("code");
         }
+
+        // const Http = new XMLHttpRequest();
+        // const url='https://github.com/login/oauth/access_token';
+        // Http.open("POST", url);
+        // Http.setRequestHeader('client_id', '8a2dea0bd79c1721b453');
+        // Http.setRequestHeader('client_secret', '335b4ada62e23ef9b7916964fd9d1e55712085f8');
+        // Http.setRequestHeader('code', urlParams.get('code'));
+        // Http.send();
+
+        // Http.onreadystatechange = (e) => {
+        //     alert(Http.responseText)
+        // }
     </script>
 </html>
