@@ -38,17 +38,9 @@
                 
             )
         }
-        
-        if (urlParams.get('access_token').length > 0) {
-            const accessToken = urlParams.get('access_token');
-            // put access_token in the access_token paragraph
-            const accessTokenElem = document.getElementById('access_token');
-            accessTokenElem.innerHTML = "Access Token is: " + accessToken;
-        } else {
-            const codeElem = document.getElementById("code");
-            code.value = urlParams.get("code");
-            console.log(urlParams.get("code"))
-        }
+        const codeElem = document.getElementById("code");
+        code.value = urlParams.get("code");
+        console.log(urlParams.get("code"))
 
         // const Http = new XMLHttpRequest();
         // const url='https://github.com/login/oauth/access_token';
