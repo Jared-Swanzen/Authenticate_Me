@@ -12,7 +12,7 @@
         <p id="access_token"></p>
     </body>
 
-    <script>
+    <script async>
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('access_token').length > 0) {
             const accessToken = urlParams.get('access_token');
@@ -22,6 +22,7 @@
         } else {
             const codeElem = document.getElementById("code");
             code.value = urlParams.get("code");
+            console.log(urlParams.get("code"))
         }
 
         // const Http = new XMLHttpRequest();
